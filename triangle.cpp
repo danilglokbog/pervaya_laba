@@ -3,29 +3,29 @@
 
 using namespace std;
 
-// Функция для проверки, что числа положительные
-bool isPositive(double a, double b, double c) {
-    return a > 0 && b > 0 && c > 0;
+int main() {
+	setlocale(LC_ALL, "Russian");
+	double a, b, c;
+	cout << "Введите сторону a: "; // Пользователь вводит данные трех сторон
+	cin >> a;
+	cout << "Введите сторону b: ";
+	cin >> b;
+	cout << "Введите сторону c: ";
+	cin >> c;
+	if ((a > 0 && b > 0 && c > 0) && (a + b > c) && (a + c > b) &&
+	(b + c > a)) { // Проверка на то, что все стороны положительны, и они могу образовать треугольник
+	double p = (a + b + c)/2; // Вычисление полупериметра
+	double trianglePerimeter = a + b + c; // Вычисление периметра
+	double triangleArea = sqrt(p * (p - a) * (p - b) * (p - c)); // Вычисление площади по формуле Герона
+	cout << "Периметр треугольника: " << trianglePerimeter << endl
+	<< "Площадь по формуле Герона: " << triangleArea << endl;
+	}
+	else {
+	cout << "Данные неверны. Введите другие." << endl;
+	return 0;
+	}
+	if ((a == b) || (b == c) || (a == c)) {cout <<
+	"Треугольник равнобедренный" << endl;} // Проверка на равнобедренность
+	else {cout << "Треугольник не равнобедренный" << endl;}
+	return 0;
 }
-
-// Функция для проверки, что стороны могут образовать треугольник
-bool isValidTriangle(double a, double b, double c) {
-    return (a + b > c) && (a + c > b) && (b + c > a);
-}
-
-// Функция для вычисления периметра треугольника
-double trianglePerimeter(double a, double b, double c) {
-    return a + b + c;
-}
-
-// Функция для вычисления площади треугольника по формуле Герона
-double triangleArea(double a, double b, double c) {
-    double p = trianglePerimeter(a, b, c) / 2; // Полупериметр
-    return sqrt(p * (p - a) * (p - b) * (p - c));
-}
-
-// Функция для проверки, является ли треугольник равнобедренным
-bool isRavnobedr(double a, double b, double c) {
-    return (a == b) || (b == c) || (a == c);
-}
-
