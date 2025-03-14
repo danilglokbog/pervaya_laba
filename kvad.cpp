@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-int main() {
+int main() { // main
         setlocale(LC_ALL, "Russian");
         double a,b,c;
         cout << "Введите сторону a: "; // Пользователь вводит стороны прямоугольника
